@@ -1,4 +1,4 @@
-# Node.js server for movie application
+# Node.js GraphQL server template
 
 Instal dependencies::
 
