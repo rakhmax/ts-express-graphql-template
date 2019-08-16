@@ -1,0 +1,40 @@
+extend type Query {
+  getAuthData(username: String! password: String!): AuthData
+}
+
+extend type Mutation {
+  createUser(userInput: RegisterInput): User
+  updateUser(userId: ID! userInput: EditInput!): User
+  deleteUser(userId: ID!): User
+}
+
+type User {
+  id: ID!
+  firstname: String
+  lastname: String
+  username: String
+  email: String
+  password: String
+}
+
+type AuthData {
+  userId: ID!
+  token: String!
+  tokenExpiration: Int!
+}
+
+input RegisterInput {
+  firstname: String!
+  lastname: String!
+  username: String!
+  email: String!
+  password: String!
+}
+
+input EditInput {
+  firstname: String
+  lastname: String
+  username: String
+  email: String
+  password: String
+}

@@ -1,0 +1,7 @@
+type Query {
+  getHost: String
+}
+
+type Mutation {
+  temp: String
+}
