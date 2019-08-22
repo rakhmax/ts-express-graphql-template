@@ -427,7 +427,15 @@ apollo-graphql@^0.3.3:
     apollo-env "0.5.1"
     lodash.sortby "^4.7.0"
 
-apollo-link@^1.2.3:
+apollo-link-context@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/apollo-link-context/-/apollo-link-context-1.0.18.tgz#9e700e3314da8ded50057fee0a18af2bfcedbfc3"
+  integrity sha512-aG5cbUp1zqOHHQjAJXG7n/izeMQ6LApd/whEF5z6qZp5ATvcyfSNkCfy3KRJMMZZ3iNfVTs6jF+IUA8Zvf+zeg==
+  dependencies:
+    apollo-link "^1.2.12"
+    tslib "^1.9.3"
+
+apollo-link@^1.2.12, apollo-link@^1.2.3:
   version "1.2.12"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.12.tgz#014b514fba95f1945c38ad4c216f31bcfee68429"
   integrity sha512-fsgIAXPKThyMVEMWQsUN22AoQI+J/pVXcjRGAShtk97h7D8O+SPskFinCGEkxPeQpE83uKaqafB2IyWdjN+J3Q==

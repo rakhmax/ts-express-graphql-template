@@ -1,11 +1,8 @@
-extend type Query {
-  getAuthData(username: String! password: String!): AuthData
-}
-
 extend type Mutation {
-  createUser(userInput: RegisterInput): User
-  updateUser(userId: ID! userInput: EditInput!): User
-  deleteUser(userId: ID!): User
+  createUser(userInput: AuthInput): User
+  authUser(userInput: AuthInput): AuthData
+  updateUser(userInput: EditInput!): User
+  deleteUser: User
 }
 
 type User {
@@ -23,11 +20,11 @@ type AuthData {
   tokenExpiration: Int!
 }
 
-input RegisterInput {
-  firstname: String!
-  lastname: String!
+input AuthInput {
+  firstname: String
+  lastname: String
   username: String!
-  email: String!
+  email: String
   password: String!
 }
 
