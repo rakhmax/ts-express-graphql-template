@@ -22,9 +22,9 @@ export const mutations = {
         throw new UserInputError('User already exists.');
       }
 
-      userInput.password = await bcrypt.hash(userInput.password, 10);
+      let password = await bcrypt.hash(userInput.password, 10);
 
-      const res: {} = await User.create(userInput);
+      const res: {} = await User.create({ ...userInput, password });
 
       return res;
     } catch (error) {
