@@ -21,23 +21,22 @@ const isAuth = (req: AuthRequest, res: Response, next: NextFunction) => {
     return next();
   }
 
-  let decodedToken: any;
-
   try {
-    decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    let decodedToken: any = jwt.verify(token, process.env.JWT_SECRET);
+
+    if (!decodedToken) {
+      req.isAuth = false;
+      return next();
+    }
+
+    req.isAuth = true;
+    req.userId = decodedToken.userId;
+    next();
+
   } catch (error) {
     req.isAuth = false;
     return next();
   }
-
-  if(!decodedToken) {
-    req.isAuth = false;
-    return next();
-  }
-
-  req.isAuth = true;
-  req.userId = decodedToken.userId;
-  next();
 }
 
 export default isAuth;

@@ -1,0 +1,28 @@
+type Mutation {
+  createUser(userInput: UserInput): UserData
+  authUser(userInput: UserInput): AuthData
+  updateUser(userInput: UserInput): UserData
+  deleteUser: AuthData
+}
+
+type UserData {
+  id: ID
+  firstname: String
+  lastname: String
+  username: String
+  email: String
+}
+
+type AuthData {
+  id: ID
+  token: String
+  tokenExpiration: String
+}
+
+input UserInput {
+  firstname: String
+  lastname: String
+  username: String!
+  email: String
+  password: String!
+}
